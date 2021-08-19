@@ -1,5 +1,5 @@
 type jugada = "piedra" | "papel" | "tijera";
-type resultado = "ganaUsuario" | "ganaCompu" | "empate";
+type resultado = "usuarioGana" | "compuGana" | "empate";
 
 const state = {
     data: {
@@ -37,6 +37,7 @@ const state = {
         const currentState = this.getState();
         currentState.esteJuego[jugador] = elegir;
         
+        console.log(state);
         this.setState(currentState);
     },
     getCurrentGame() {
@@ -46,8 +47,8 @@ const state = {
     restartGame() {
         const currentState = this.getState();
 
-        currentState.esteJuego.miMovimiento = "none";
-        currentState.esteJuego.movimientoCompu = "none";
+        currentState.esteJuego.jugadaUsuario = "";
+        currentState.esteJuego.jugadaCompu = "";
 
         this.setState(currentState);
     },
@@ -68,28 +69,26 @@ const state = {
         let resultadoDelJuego: resultado;
 
         if (usuarioGana) {
-
-            resultadoDelJuego = "ganaUsuario";
+            resultadoDelJuego = "usuarioGana";
         } else if (compuGana) {
-            resultadoDelJuego = "ganaCompu";
+            resultadoDelJuego = "compuGana";
         } else {
             resultadoDelJuego = "empate";
         }
 
         return resultadoDelJuego;
     },
-    cambiarHistory(resultado: resultado) {
+    cambiarHistorial(resultadoDelJuego: resultado) {
         const currentState = this.getState();
 
-        if (resultado === "ganaUsuario") {
-            currentState.usuarioGana += 1;
-        } else if (resultado === "ganaCompu") {
-            currentState.compuGana += 1;
+        if (resultadoDelJuego === "usuarioGana") {
+            currentState.historial.usuarioGana += 1;
+        } else if (resultadoDelJuego === "compuGana") {
+            currentState.historial.compuGana += 1;
         }
 
-        return this.setState(currentState);
+        this.setState(currentState);
     },
-
 }
 
 export { state, jugada };  

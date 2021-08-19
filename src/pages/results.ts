@@ -1,8 +1,8 @@
 import { state } from "../state";
 
 const resultado = {
-    ganaUsuario: require("url:../components/assets/ganaste.png"),
-    ganaCompu: require("url:../components/assets/perdiste.png"),
+    usuarioGana: require("url:../components/assets/ganaste.png"),
+    compuGana: require("url:../components/assets/perdiste.png"),
     empate: require("url:../components/assets/tiedGame.svg"),
 };
 
@@ -13,11 +13,11 @@ export function initResultadoPage(params: any) {
 
     const currentGame = state.getCurrentGame();
     const resultadoDelJuego = state.tenerResultado(
-        currentGame.miMovimiento,
-        currentGame.movimientoCompu,
+        currentGame.jugadaUsuario,
+        currentGame.jugadaCompu,
     );
 
-    state.cambiarHistory(resultadoDelJuego);
+    state.cambiarHistorial(resultadoDelJuego);
     const currentHistory = state.getState().historial;
 
     state.restartGame();
@@ -27,7 +27,7 @@ export function initResultadoPage(params: any) {
         <img src=${resultado[resultadoDelJuego]} class="result-image" />
     </div>
     <div class="score-container">
-        <h2 class="score-container__title">Score</h2>
+        <h2 class="score-container__title"> Puntaje </h2>
         <article class="score-container__data">
             <h3 class="score-container__user-data score"> 
                 Vos: ${currentHistory.usuarioGana}
@@ -38,7 +38,7 @@ export function initResultadoPage(params: any) {
         </article>
     </div>
     <div class="button result-button">
-        <button-comp variant="button result-button"> Volver a jugar </button-comp>
+        <button-comp variant="button result-button">Volver a jugar</button-comp>
     </div>
     `;
 
