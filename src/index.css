@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@font-face {
+    font-family: "Amreican Typewriter";
+    src: url("../src/components/text/American Typewriter Regular.ttf");
+}
+:root {
+    --fondo-background-image: url(./components/assets/ppt-fondo.png);
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: "Amreican Typewriter", sans-serif;
+}
+.general-container {
+    height: 100vh;
+    overflow: auto;
+    background-color: #E5E5E5;
+    background-image: var(--fondo-background-image);
+}
+.root {
+    height: 100vh;
+    display: flex;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+}
+.img__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

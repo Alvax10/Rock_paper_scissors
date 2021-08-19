@@ -1,0 +1,50 @@
+.result {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    height: inherit;
+    padding: 20px 0 20px 0;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 15px;
+}
+
+.result-image {
+    width: 100%;
+    height: 100%;
+}
+
+.score-container {
+    width: 250px;
+}
+
+.score-container {
+    padding: 15px;
+
+    text-align: center;
+    border: solid 5px black;
+    background-color: white;
+}
+
+.score-container__title,
+.score {
+    margin: 0;
+}
+
+.score-container__title {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.score {
+    font-size: 45px;
+}
+
+.button-container {
+    width: 100%;
+    margin-top: auto;
+}

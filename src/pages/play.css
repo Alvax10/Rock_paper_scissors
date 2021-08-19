@@ -1,0 +1,115 @@
+.game-countdown {
+    display: grid;
+    height: inherit;
+    align-items: flex-end;
+    grid-template-columns: minmax(0, 1fr);
+}
+.mostrar-manos {
+    overflow: hidden;
+    align-items: flex-end;
+    justify-items: center;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.countdown-timer {
+    margin: 0;
+    text-align: center;
+    font-size: 128px;
+}
+.hands-container-countdown {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.game-hands-show {
+    display: flex;
+    flex-direction: column;
+}
+.computer-hand {
+    padding-top: 155px;
+    align-self: flex-start;
+    transform: rotate(180deg);
+}
+.user-hand {
+    margin-top: 80px;
+    transform: translateY(-25px);
+}
+/* Con esto ajusto el contador a todas las pantallas y modifico el circulo del div */
+.circle {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 250px;
+    height: 250px;
+    margin: 100px 60px;
+    border: 10px solid;
+    border-radius: 50%;
+}
+.countdown-timer {
+    top: 13%;
+    left: 42%;
+    right: 58%;
+    bottom: 87%;
+    font-size: 100px;
+    position: absolute;
+}
+@media(max-width: 1190px) {
+    .countdown-timer {
+        top: 35%;
+        left: 47%;
+        position: absolute;
+    }
+}
+@media(min-width: 1200px) {
+    .countdown-timer {
+        top: 35%;
+        left: 48%;
+        right: 47%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
+@media(min-height: 900px) {
+    .countdown-timer {
+        top: 37%;
+        left: 47%;
+        right: 53%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
+@media(min-width: 1500px) {
+    .countdown-timer {
+        top: 37%;
+        left: 48%;
+        right: 48%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
+@media(max-width: 700px) {
+    .countdown-timer {
+        left: 45%;
+        right: 55%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
+@media(max-width: 500px) {
+    .countdown-timer {
+        left: 43%;
+        right: 54%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
+@media(max-width: 390px) {
+    .countdown-timer {
+        top: 28%;
+        left: 41%;
+        right: 53%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
