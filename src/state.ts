@@ -37,7 +37,6 @@ const state = {
         const currentState = this.getState();
         currentState.esteJuego[jugador] = elegir;
         
-        console.log(state);
         this.setState(currentState);
     },
     getCurrentGame() {
@@ -47,8 +46,8 @@ const state = {
     restartGame() {
         const currentState = this.getState();
 
-        currentState.esteJuego.jugadaUsuario = "";
-        currentState.esteJuego.jugadaCompu = "";
+        currentState.esteJuego.miMovimiento = "none";
+        currentState.esteJuego.movimientoCompu = "none";
 
         this.setState(currentState);
     },
@@ -82,9 +81,9 @@ const state = {
         const currentState = this.getState();
 
         if (resultadoDelJuego === "usuarioGana") {
-            currentState.historial.usuarioGana += 1;
+            currentState.historial.usuarioGana ++;
         } else if (resultadoDelJuego === "compuGana") {
-            currentState.historial.compuGana += 1;
+            currentState.historial.compuGana ++;
         }
 
         this.setState(currentState);

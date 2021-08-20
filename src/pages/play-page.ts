@@ -11,13 +11,14 @@ function movimientoRandom(): jugada {
 export function initPlayPage(params: any) {
     
     var tiempoLimite: number = 3;
+    var tiempoVisible: number = 3;
 
     const playContainer = document.createElement("div");
     playContainer.setAttribute("class", "game-countdown");
 
     playContainer.innerHTML = `
         <div class="circle">
-            <h2 class="countdown-timer"> ${tiempoLimite} </h2>
+            <h2 class="countdown-timer"> ${tiempoVisible} </h2>
         </div>
         <div class="hands-container-countdown">
             <hand-comp hand="tijera"></hand-comp>
@@ -51,31 +52,47 @@ export function initPlayPage(params: any) {
     });
     
     state.setMove(movimientoRandom(), "jugadaCompu");
-    
-    const countdownTimerEl = playContainer.querySelector(".countdown-timer");
-    const timerInterval = setInterval(() => {
         
+    const countdownTimerEl = playContainer.querySelector(".countdown-timer");
+    countdownTimerEl.textContent = tiempoVisible.toString();
+    
+    let intervalTimer = setTimeout(() => {
+        
+        tiempoVisible--;
+    }, 1000);
+    
+    if (tiempoLimite === 0) {
+        clearTimeout(intervalTimer);
+    }
+    
+    let timerInterval = setTimeout(() => {
+        const esteJuego = state.getCurrentGame();   
+
         if (tiempoLimite === 0) {
             clearTimeout(timerInterval);
         }
-        
-        const esteJuego = state.getCurrentGame();
         
         playContainer.classList.add("game-hands-show");
         playContainer.innerHTML = `
         <hand-comp hand=${esteJuego.jugadaCompu} class="computer-hand" height="215px" width="90px"></hand-comp>
         <hand-comp hand=${esteJuego.jugadaUsuario} class="user-hand" height="215px" width="90px"></hand-comp>
-        `;
-
-        setTimeout(() => {
+        `;    
+        
+        let resultTimer: number = 3;
+        let goToResult = setTimeout(() => {
             params.goTo("/dwf-m5-desafio/resultado");
             
-        }, 4000);
+            resultTimer --;
+        }, 2000);
         
-        countdownTimerEl.textContent = tiempoLimite.toString();
+        if (resultTimer === 0) {
+            clearTimeout(goToResult);
+        }
+        console.log(goToResult);
+
         
-        tiempoLimite -1;
-    }, 1000); 
+        tiempoLimite --;
+    }, 3000);
     
     return playContainer;
 }
