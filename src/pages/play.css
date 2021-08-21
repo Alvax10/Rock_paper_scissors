@@ -70,6 +70,15 @@
         position: absolute;
     }
 }
+@media(min-height: 500px) {
+    .countdown-timer {
+        top: 30%;
+        left: 47.5%;
+        right: 53%;
+        font-size: 100px;
+        position: absolute;
+    }
+}
 @media(min-height: 900px) {
     .countdown-timer {
         top: 37%;

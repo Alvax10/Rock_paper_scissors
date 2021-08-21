@@ -30,11 +30,11 @@ export function buttonComp() {
                     border: 10px solid #001997;
                     font-family: 'Odibee Sans', cursive;
                 }
-                @media(min-width: 810px) {
+                @media(min-width: 801px) {
                     .button {
                         width: 312px;
                         overflow: auto;
-                        margin: 0px 0px 50px 0;
+                        margin: 10px 0px 50px 0;
                     } 
                 }
                 @media(max-width: 800px) {

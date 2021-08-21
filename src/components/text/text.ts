@@ -35,6 +35,11 @@ export function textComp() {
                 font-size: 40px;
                 text-align: center;
             }
+            @media (min-width: 790px) {
+                .body {
+                    margin: 50px 0;
+                }
+            }
             `;
             
             div.className = variant;
