@@ -36,7 +36,8 @@ const state = {
         
         const currentState = this.getState();
         currentState.esteJuego[jugador] = elegir;
-        
+
+        console.log(state.data.esteJuego)
         this.setState(currentState);
     },
     getCurrentGame() {
@@ -46,8 +47,8 @@ const state = {
     restartGame() {
         const currentState = this.getState();
 
-        currentState.esteJuego.miMovimiento = "none";
-        currentState.esteJuego.movimientoCompu = "none";
+        currentState.esteJuego.jugadaUsuario = "";
+        currentState.esteJuego.jugadaCompu = "";
 
         this.setState(currentState);
     },
